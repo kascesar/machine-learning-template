@@ -6,8 +6,8 @@ import logging
 import os
 import warnings
 
-import pandas as pd
 import mlflow
+import pandas as pd
 
 logging.getLogger("botocore").setLevel(logging.WARNING)
 logging.getLogger("boto3").setLevel(logging.WARNING)
@@ -23,5 +23,5 @@ if os.environ.get("MLFLOW_TRACKING_URI", None):
     mlflow.set_tracking_uri(mlflow_uri)
 
 mlflow.enable_system_metrics_logging()
-mlflow.tensorflow.autolog(checkpoint_save_best_only=False)
-mlflow.sklearn.autolog()
+# mlflow.tensorflow.autolog(checkpoint_save_best_only=False)
+# mlflow.sklearn.autolog()

@@ -1,8 +1,6 @@
 """
-Este modulo contiene  todos los modelos que existen en el proyecto
-## 1. modelo example 1
-
-explicación
+# Models
+This module contains all models
 
 ---
 
@@ -10,5 +8,5 @@ explicación
 
 |model name|
 |:---:|
-|ModelExample|
+|dnnDigit|
 """

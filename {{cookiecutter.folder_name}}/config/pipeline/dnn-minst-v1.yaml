@@ -1,0 +1,7 @@
+batch_size: 5
+epochs: 5
+hiden_layers:
+  - 128
+  - 100
+  - 50
+

@@ -1,11 +1,7 @@
 """
-Este módulo contiene todos los *pipelines* de entrenamientos para todos los
-modelos
+# Pipeline
 
-
-## Pasos por entrenamiento de modelo
-
-Nomenclatura:
+Note:
 - [DS] pasos relacionados a [D]ata[S]et
 - [ML] Pasos relacionados a [M]achine[L]earning
 
@@ -20,5 +16,5 @@ Nomenclatura:
 # Entrenamientos soportados
 | model| dataset| train name|
 |:---|:---|---:|
-|example-model | datasetV1|modelV1|
+|dnnDigit| mnist|dnnDigitMnist|
 """

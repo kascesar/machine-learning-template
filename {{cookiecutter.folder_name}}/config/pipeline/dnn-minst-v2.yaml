@@ -1,0 +1,4 @@
+batch_size: 100
+epochs: 3
+hiden_layers:
+  - 128

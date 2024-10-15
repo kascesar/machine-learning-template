@@ -2,7 +2,7 @@
 
 ---
 
-**abstract*: {{ cookiecutter.description }}
+* *abstract*: {{ cookiecutter.description }}
 
 ---
 
@@ -126,7 +126,6 @@ gitGraph TB:
   checkout main
   merge "model"
   commit
-
 ```
 
 ---

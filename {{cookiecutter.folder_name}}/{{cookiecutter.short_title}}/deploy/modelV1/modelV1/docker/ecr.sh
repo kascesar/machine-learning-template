@@ -31,5 +31,3 @@ else
   echo "Failed to push image to ECR."
   exit 1
 fi
-
-
