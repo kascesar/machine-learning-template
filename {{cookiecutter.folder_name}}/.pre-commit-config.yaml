@@ -1,0 +1,34 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+    -   id: check-yaml
+        exclude: docs/
+    -   id: end-of-file-fixer
+        exclude: docs/
+    -   id: trailing-whitespace
+        exclude: docs/
+
+-   repo: https://github.com/iterative/dvc
+    rev: main
+    hooks:
+    -   id: dvc-pre-commit
+        language_version: python3
+        stages:
+          - commit
+    -   id: dvc-pre-push
+        additional_dependencies: ['.[s3]']
+        language_version: python3
+        stages:
+          - push
+    -   always_run: true
+        id: dvc-post-checkout
+        language_version: python3
+        stages:
+          - post-checkout
+
+-   repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+    -   id: black
+        exclude: docs/

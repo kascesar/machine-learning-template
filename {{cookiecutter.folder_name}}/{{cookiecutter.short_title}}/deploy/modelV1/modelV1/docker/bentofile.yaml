@@ -1,0 +1,19 @@
+service: "service:svc"
+description: "file: ./DESCRIPTION.md"
+include:
+  - "service.py"
+  - "sample_input.csv"
+  - "common.py"
+  - "DESCRIPTION.md"
+python:
+  packages:
+    - tensorflow==2.16.1
+    - scikit-learn
+    - pandas
+    - numpy
+    - more-itertools
+    - pyarrow
+    - mlflow==2.11.3
+
+models:
+  - champion:latest

@@ -1,0 +1,2 @@
+path: ${paths.raw}/database.duckdb
+uri: duckdb://${.path}

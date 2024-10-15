@@ -1,0 +1,2 @@
+path: ${paths.processed}/develop_sqlite.db
+uri: sqlite:///${.path}

@@ -1,0 +1,25 @@
+{
+    "folder_name": "folder name",
+    "short_title": "project title (ex: mdc)",
+    "long_title": "long title (ex: mnist deep clasifier)",
+    "description": "project description",
+    "author": "Your Name",
+    "develop_db": ["duckdb", "sqlite", "postgres", "mysql"],
+    "compatible_python_versions": "3.10",
+    
+    "MLFLOW_HOST": "localhost",
+    "MLFLOW_PORT": "5000",
+    "MLFLOW_TRACKING_URI": "http://{{ cookiecutter.MLFLOW_HOST }}:{{ cookiecutter.MLFLOW_PORT }}",
+
+    "POSTGRES_HOST": "localhost",
+    "POSTGRES_PORT": "5432",
+    "POSTGRES_USER": "",
+    "POSTGRES_PASSWORD":"",
+    "POSTGRES_DBNAME": "",
+    
+    "MYSQL_HOST": "localhost",
+    "MYSQL_PORT": "3306",
+    "MYSQL_USER": "",
+    "MYSQL_PASSWORD":"",
+    "MYSQL_DBNAME":""
+}

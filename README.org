@@ -1,0 +1,108 @@
+* Artificial Inteligence Project Template
+:PROPERTIES:
+:CUSTOM_ID: artificial-inteligence-project-template
+:END:
+This is a [[https://www.cookiecutter.io/][cookiecutter]] template
+focused on AI, designed for model architecture development, dataset
+creation, pipeline development, and model deployment using several open
+and free state-of-the-art tools.
+
+--------------
+
+This project was developed with multi-model and multi-dataset studies
+and implementations in mind. It is designed to use
+[[https://mlflow.org/][/mlflow/]], [[https://dvc.org/][/dvc/]],
+[[https://pre-commit.com/][/pre-commit/]],
+[[https://git-scm.com/][/git/]], [[https://www.docker.com/][/docker/]]
+or [[https://podman.io/][/podman/]], [[https://jupyter.org/][/jupyter
+lab/]], [[https://hydra.cc/][/hydra/]],
+[[https://www.bentoml.com/][/bentoml/]],
+[[https://pipenv-es.readthedocs.io][pipenv]], and, at your choice,
+variousdatabases like /duckdb/ or /PostgreSQL/ in local or cloud
+environments.
+
+The project manages its own environment variables through a /.env/ file
+integrated with /Hydra/ configurations, offering two development
+branches (/development/ and /production/) at the /Hydra/ level. The
+project also uses [[https://pdoc.dev/][/pdoc/]] to generate useful
+documentation in /HTML/ format.
+
+** Folder structure of project
+:PROPERTIES:
+:CUSTOM_ID: folder-structure-of-project
+:END:
+#+begin_src mermaid
+graph LR;
+    root["root"]
+    root --> config
+    config --> database
+    config --> mlflow
+    config --> optuna
+    config --> pipeline
+    config --> type
+
+    database --> duckdb
+    database --> mysql
+    database --> postgres
+    database --> sqlite
+
+    mlflow --> development_mlflow
+    mlflow --> production_mlflow
+
+    optuna --> development_optuna
+    optuna --> production_optuna
+
+    pipeline --> modelV1
+
+    type --> development_type
+    type --> production_type
+
+    root --> short_title
+    short_title --> datasets
+    datasets --> datasetV1
+
+    short_title --> deploy
+    deploy --> modelV1_deploy
+    modelV1_deploy --> docker
+
+    short_title --> models
+    models --> modelexample
+    modelexample --> notebooks
+
+    short_title --> train
+    train --> trainV1
+    trainV1 --> steps
+
+    root --> dataset
+    dataset --> final
+    dataset --> processed
+    dataset --> raw
+
+    root --> docs
+#+end_src
+
+** Requeriments (Linux - debian like OS)
+:PROPERTIES:
+:CUSTOM_ID: requeriments-linux---debian-like-os
+:END:
+This project takes care of configuring all its dependencies and tools.
+However, it requires that you have the Python package manager (/pip/)
+and /cookiecutter/ installed.
+
+#+begin_src shell
+sudo apt install python3-pip git && \
+pip install --upgrade pip && \
+pip install --upgrade cookiecutter
+#+end_src
+
+** Instantiate a projet
+:PROPERTIES:
+:CUSTOM_ID: instantiate-a-projet
+:END:
+To instantiate a project, you can do it just typing
+
+#+begin_src shell
+cookiecutter https://github.com/kascesar/artificial-inteligence-template.git
+#+end_src
+
+then follow the instruction.git

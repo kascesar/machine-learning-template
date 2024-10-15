@@ -1,0 +1,35 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+hydra-core = "*"
+omegaconf = "*"
+tensorflow = "*"
+more-itertools = "*"
+scikit-learn = "*"
+pandas = "*"
+pdoc = "*"
+psycopg = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
+sqlmodel = "*"
+tqdm = "*"
+jupyterlab = "*"
+matplotlib = "*"
+numpy = "*"
+mlflow = "*"
+boto3 = "*"
+pynvml = "*"
+bentoml = "*"
+dvc = {version = "*", extras = ["all"]}
+seaborn = "*"
+duckdb = "*"
+optuna = "*"
+optuna-dashboard = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "{{ cookiecutter.compatible_python_versions }}"

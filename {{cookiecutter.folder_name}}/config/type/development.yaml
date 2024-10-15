@@ -1,0 +1,4 @@
+defaults:
+  - /database: {{cookiecutter.develop_db}}
+  - /mlflow: development
+  - /optuna: development

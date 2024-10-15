@@ -1,0 +1,4 @@
+defaults:
+ - /database: postgres
+ - /mlflow: production
+ - /optuna: development
