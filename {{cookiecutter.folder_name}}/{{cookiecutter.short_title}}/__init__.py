@@ -52,4 +52,5 @@ if os.environ.get("MLFLOW_TRACKING_URI", None):
 
 mlflow.enable_system_metrics_logging()
 mlflow.tensorflow.autolog(checkpoint_save_best_only=False)
+mlflow.pytorch.autolog(checkpoint_save_best_only=False)
 mlflow.sklearn.autolog()

@@ -28,6 +28,7 @@ seaborn = "*"
 duckdb = "*"
 optuna = "*"
 optuna-dashboard = "*"
+torch = "*"
 
 [dev-packages]
 
