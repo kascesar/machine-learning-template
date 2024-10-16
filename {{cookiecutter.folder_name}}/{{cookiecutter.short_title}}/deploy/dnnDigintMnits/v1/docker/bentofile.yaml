@@ -2,7 +2,6 @@ service: "service:svc"
 description: "file: ./DESCRIPTION.md"
 include:
   - "service.py"
-  - "sample_input.csv"
   - "common.py"
   - "DESCRIPTION.md"
 python:
@@ -16,4 +15,4 @@ python:
     - mlflow==2.11.3
 
 models:
-  - champion:latest
+  - "dnn-clf-mnist:latest"

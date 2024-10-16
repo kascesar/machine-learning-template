@@ -1,3 +1,3 @@
-# ModelV1
+# dnnDigitMnist clasifier
 
-Explique su modelo
+Deep learningn model for digit clasifier trained whith *MNIST* dataset

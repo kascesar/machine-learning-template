@@ -1,3 +1,3 @@
 """
-Explicación de las funciones y/o clases que ayudan en la utilizacion del modelo
+Common function helper to create bento model
 """

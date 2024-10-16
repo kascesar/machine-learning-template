@@ -1,3 +1,3 @@
 """
-Explicación de las funciones y/o clases que ayudan en la utilizacion del modelo
+Use this module to keep helper functions and/or classes
 """

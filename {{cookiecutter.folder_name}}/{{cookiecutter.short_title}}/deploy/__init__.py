@@ -14,4 +14,38 @@ The reason for point *3* is that the code within each version of each *deploy* m
 | Model   |
 |:-------:|
 | dnnDigitMnist |
+
+---
+
+## User Flow
+
+```mermaid
+C4Context
+    title Process of Model Logging and Dockerization
+
+    Enterprise_Boundary(b0, "ML System") {
+        Person(User, "User", "Initiates the model logging and dockerization process.")
+        
+        System(MLflow, "MLflow", "Tracks and registers machine learning models.")
+        
+        Enterprise_Boundary(b1, "Bento System") {
+
+            System(Script, "create_bento_file.py", "Script that generates the Bento model or runner.")
+            
+            System_Ext(Docker, "Docker", "Containerizes the Bento model.")
+        }
+    }
+
+    Rel(User, MLflow, "Logs the model in")
+    Rel(User, Script, "Executes the script")
+    Rel(Script, Docker, "Containerizes the Bento model")
+    Rel(Docker, User, "Confirms containerization")
+
+    UpdateElementStyle(User, $fontColor="black", $bgColor="#FFEB3B", $borderColor="black")
+    UpdateRelStyle(User, MLflow, $textColor="blue", $lineColor="blue")
+    UpdateRelStyle(User, Script, $textColor="green", $lineColor="green")
+    UpdateRelStyle(Script, Docker, $textColor="orange", $lineColor="orange")
+    UpdateRelStyle(Docker, User, $textColor="purple", $lineColor="purple")
+
+```
 """

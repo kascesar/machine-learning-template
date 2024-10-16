@@ -1,7 +1,8 @@
 * Artificial Inteligence Project Template
-:PROPERTIES:
-:CUSTOM_ID: artificial-inteligence-project-template
-:END:
+  :PROPERTIES:
+  :CUSTOM_ID: artificial-inteligence-project-template
+  :END:
+
 This is a [[https://www.cookiecutter.io/][cookiecutter]] template
 focused on AI, designed for model architecture development, dataset
 creation, pipeline development, and model deployment using several open
@@ -18,7 +19,7 @@ or [[https://podman.io/][/podman/]], [[https://jupyter.org/][/jupyter
 lab/]], [[https://hydra.cc/][/hydra/]],
 [[https://www.bentoml.com/][/bentoml/]],
 [[https://pipenv-es.readthedocs.io][pipenv]], and, at your choice,
-variousdatabases like /duckdb/ or /PostgreSQL/ in local or cloud
+various databases like /duckdb/ or /PostgreSQL/ in local or cloud
 environments.
 
 The project manages its own environment variables through a /.env/ file
@@ -28,81 +29,133 @@ project also uses [[https://pdoc.dev/][/pdoc/]] to generate useful
 documentation in /HTML/ format.
 
 ** Folder structure of project
-:PROPERTIES:
-:CUSTOM_ID: folder-structure-of-project
-:END:
-#+begin_src mermaid
-graph LR;
-    root["root"]
-    root --> config
-    config --> database
-    config --> mlflow
-    config --> optuna
-    config --> pipeline
-    config --> type
+   :PROPERTIES:
+   :CUSTOM_ID: folder-structure-of-project
+   :END:
 
-    database --> duckdb
-    database --> mysql
-    database --> postgres
-    database --> sqlite
-
-    mlflow --> development_mlflow
-    mlflow --> production_mlflow
-
-    optuna --> development_optuna
-    optuna --> production_optuna
-
-    pipeline --> modelV1
-
-    type --> development_type
-    type --> production_type
-
-    root --> short_title
-    short_title --> datasets
-    datasets --> datasetV1
-
-    short_title --> deploy
-    deploy --> modelV1_deploy
-    modelV1_deploy --> docker
-
-    short_title --> models
-    models --> modelexample
-    modelexample --> notebooks
-
-    short_title --> train
-    train --> trainV1
-    trainV1 --> steps
-
-    root --> dataset
-    dataset --> final
-    dataset --> processed
-    dataset --> raw
-
-    root --> docs
-#+end_src
+#+BEGIN_EXAMPLE
+  mindmap
+    markdown[Root **folder_name**]
+      markdown[**configs**]
+        database
+          duckdb
+          mysql
+          postgres
+          sqlite
+        mlflow
+          development_mlflow
+          production_mlflow
+        optuna
+          development_optuna
+          production_optuna
+        pipeline
+          modelv1
+        type
+          development_type
+          production_type
+      markdown[Source **short_title**]
+        markdown[**datasets**]
+          datasetV1
+        markfown[**deploy**]
+          modelV1_deploy
+            docker
+        markdown[**models**]
+          modelexample
+            notebooks
+        markdown[**train**]
+          trainV1
+            steps
+      dataset
+        final
+        processed
+        raw
+      docs
+#+END_EXAMPLE
 
 ** Requeriments (Linux - debian like OS)
-:PROPERTIES:
-:CUSTOM_ID: requeriments-linux---debian-like-os
-:END:
+   :PROPERTIES:
+   :CUSTOM_ID: requeriments-linux---debian-like-os
+   :END:
+
 This project takes care of configuring all its dependencies and tools.
 However, it requires that you have the Python package manager (/pip/)
 and /cookiecutter/ installed.
 
-#+begin_src shell
-sudo apt install python3-pip git && \
-pip install --upgrade pip && \
-pip install --upgrade cookiecutter
-#+end_src
+#+BEGIN_EXAMPLE
+  sudo apt install python3-pip git && \
+  pip install --upgrade pip && \
+  pip install --upgrade cookiecutter
+#+END_EXAMPLE
+
+** recomended configurations
+   :PROPERTIES:
+   :CUSTOM_ID: recomended-configurations
+   :END:
+
+there is two options that are recomended 1. On project folder python
+envioriment 2. git default branch as main
+
+#+BEGIN_EXAMPLE
+  export PIPENV_VENV_IN_PROJECT=1
+  git config --global init.defaultBranch main
+#+END_EXAMPLE
 
 ** Instantiate a projet
-:PROPERTIES:
-:CUSTOM_ID: instantiate-a-projet
-:END:
+   :PROPERTIES:
+   :CUSTOM_ID: instantiate-a-projet
+   :END:
+
 To instantiate a project, you can do it just typing
 
-#+begin_src shell
-cookiecutter https://github.com/kascesar/artificial-inteligence-template.git
-#+end_src
+#+BEGIN_EXAMPLE
+  cookiecutter https://github.com/kascesar/artificial-inteligence-template.git
+#+END_EXAMPLE
 
 then follow the instruction.git
+
+--------------
+
+** For developers - Configure git hooks for this project
+   :PROPERTIES:
+   :CUSTOM_ID: for-developers---configure-git-hooks-for-this-project
+   :END:
+
+after /cloning/
+
+#+BEGIN_EXAMPLE
+  chmod +x setup_hooks.sh && \
+  sh setup_hooks.sh
+#+END_EXAMPLE
+
+--------------
+
+* Read before using
+  :PROPERTIES:
+  :CUSTOM_ID: read-before-using
+  :END:
+
+** Who might find this template useful?
+   :PROPERTIES:
+   :CUSTOM_ID: who-might-find-this-template-useful
+   :END:
+
+*R*: Anyone, whether a developer, data scientist, or machine learning
+engineer, who wants to have a clean, simple, scalable, and replicable
+development environment.
+
+** Who is this template designed for?
+   :PROPERTIES:
+   :CUSTOM_ID: who-is-this-template-designed-for
+   :END:
+
+*R*: For developers using free and/or open-source MLOps and artificial
+intelligence tools like mlflow, optuna, bentoml, docker, tensorflow, etc
+... aimed at studying, developing, and deploying models to production.
+
+** What knowledge do I need to use this template?
+   :PROPERTIES:
+   :CUSTOM_ID: what-knowledge-do-i-need-to-use-this-template
+   :END:
+
+*R*: At least have a moderate understanding of Python, MLflow, DVC, Git,
+and Hydra.
