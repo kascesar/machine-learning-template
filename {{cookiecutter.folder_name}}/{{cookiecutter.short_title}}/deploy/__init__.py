@@ -1,23 +1,17 @@
 """
 # Deploy
 
-Este módulo es en donde se definen todas las tareas de deployments de los modelos.
-Antes de adentrarse en la creación de estos modulos y como organizarlos es importante
-tener algunas consideraciones relevantes.
+This module defines all the deployment tasks for the models. Before delving into the creation of these modules and how to organize them, it is important to consider some relevant points.
 
-1. Cada *padre* del deployment debe ser la versión en formato *camellcase* como se
-se verá mas adelante.
-2. Cada padre de la version, debe ser el tipo de modelo.
-3. Deben existir archivos `__init__.py` solo hasta el nivel del tipo de dataset
+1. Each *parent* of the deployment should be the version in *camel case* format, as will be explained later.
+2. Each parent version should correspond to the type of model.
+3. There should only be `__init__.py` files up to the level of the dataset type.
 
-La razón tras el putno *3*, se debe a que el codigo dentro de cada version de cada
-*deploy* debe podemos funcionar de forma aislada y no deberia depender de **ningún
-otro modeulo**; garantizando el correcto funcionamiento de cada uno.
+The reason for point *3* is that the code within each version of each *deploy* must be able to function independently and should not depend on **any other module**, ensuring the correct operation of each one.
 
+## Supported Models
 
-## Modelos soportados
-
-|modelo|
-|:---:|
-|modelV1|
+| Model   |
+|:-------:|
+| dnnDigitMnist |
 """

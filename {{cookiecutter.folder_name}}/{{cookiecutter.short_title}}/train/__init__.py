@@ -2,19 +2,20 @@
 # Pipeline
 
 Note:
-- [DS] pasos relacionados a [D]ata[S]et
-- [ML] Pasos relacionados a [M]achine[L]earning
+- [DS] steps related to [D]ata[S]et
+- [ML] steps related to [M]achine[L]earning
 
 ---
 
-* [DS] ingest
-* [DS] split
-* [DS] transform
-* [ML] train
+* [DS] ingestion
+* [DS] splitting
+* [DS] transformation
+* [ML] training
 * [ML] metrics
 
-# Entrenamientos soportados
-| model| dataset| train name|
-|:---|:---|---:|
-|dnnDigit| mnist|dnnDigitMnist|
+# Supported Trainings
+| model    | dataset | training name         |
+|:---------|:-------|-----------------------:|
+| dnnDigit | mnist  | dnnDigitMnist         |
+
 """

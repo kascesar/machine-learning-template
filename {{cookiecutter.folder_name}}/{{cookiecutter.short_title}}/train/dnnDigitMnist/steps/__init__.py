@@ -1,9 +1,10 @@
 """
-Aqui se describen lo que hace este *Pipeline*
+Here is a description of what this *Pipeline* does.
 
-## Descripcion de los pasos
+## Description of the Steps
 
 * build dataset
 * load dataset
 * train model
+
 """

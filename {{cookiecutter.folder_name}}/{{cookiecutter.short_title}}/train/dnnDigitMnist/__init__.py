@@ -4,7 +4,8 @@
 * M: ModelV1
 * D: DatasetV1
 
-# Descripción
+# Description
 
-Aqui debe explicarse lo que hace este pipeline en resumen
+Here, you should explain what this pipeline does in summary.
+
 """

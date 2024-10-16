@@ -6,89 +6,90 @@
 
 ---
 
-# *Leyes* de desarrollo
+# Development *Laws*
 
-Se exige seguir las siguientes practicas si pretende colaborar con el desarrollo continuo.
+The following practices must be followed if you intend to collaborate with continuous development.
 
-1. Este proyecto usa *Pipenv* para hacer seguimiento de las dependencias
-2. Se usa Hydra.cc para gestionar las configuraciones del proyecto.
-   a. Cualquier nuevo modelo debe usar estrictamente las configuraciones con Hydra
-   b. El colaborador debe preservar el esquema de configuraciones y los lineamientos de desarrollo explicados mas abajo
-3. Los modelos **deben** ser logeados en *mlflow* siguiendo el mismo esquema de ramas de modelos explicada abajo
-   a. Si el *pullrequest* es de un modelo y no está logeado en *mlflow*, será rechazado
-   b. si el *pullrequest* es rechazado pero aun así hay un log en *mlflow*, el modelo de *mlflow* **debe ser eliminado.
-4. Los *deploys* son mediante **BentoML**.
-5. Solo el director de desarrollo puede establecer las versiones de las dependencias
-   a. Cualquier *pullrequest* que envíe modificaciones al Pipfile o/y Pipfile.lock se descartá
-   b. Cualquier *pullrequest* que no explique adecuadamente los cambios enviados será descartado
-6. Este proyecto usa pre-commit, el cual debe ser superado y le ayudará para evitar que se descarten sus cambios.
-7. Asegurese de que todas las funciones, clases estén correctamente escritas, este proyecto usa *pdoc* para crear la documentación este soporta markdown, latex y mermaid.
-8. Es una exigencia de este proyecto crear los diagramas de clases y flujo (según sea necesario) con ***Mermaid***, estos deben ser puestos en la docuemntación.
+1. This project uses *Pipenv* to track dependencies
+2. Hydra.cc is used to manage project configurations.
+   a. Any new model must strictly use configurations with Hydra
+   b. The collaborator must preserve the configuration scheme and development guidelines explained below
+3. Models **must** be logged in *mlflow* following the same model branch scheme explained below
+   a. If the *pull request* is for a model and it's not logged in *mlflow*, it will be rejected
+   b. If the *pull request* is rejected but there's still a log in *mlflow*, the *mlflow* model **must be deleted**
+4. *Deployments* are done through **BentoML**.
+5. Only the development director can establish the versions of dependencies
+   a. Any *pull request* that sends modifications to the Pipfile and/or Pipfile.lock will be discarded
+   b. Any *pull request* that doesn't adequately explain the changes sent will be discarded
+6. This project uses pre-commit, which must be passed and will help you avoid having your changes discarded.
+7. Make sure all functions and classes are correctly written, this project uses *pdoc* to create documentation which supports markdown, latex, and mermaid.
+8. It's a requirement of this project to create class and flow diagrams (as necessary) with ***Mermaid***, these should be placed in the documentation.
 
 ---
 
-# Lineamientos de desarrollo
+# Development Guidelines
 
-Se definió como base dos ramas de desarollo -**no a nivel de git**, de hydra-
+Two development branches have been defined as a base -**not at the git level**, but at the hydra level-
 
 * development
 * production
 
-Estas son consideradas super-ramas, es decir, son configuraciones superiores que gobiernan
-las configuraciones inferiores.
+These are considered super-branches, that is, they are superior configurations that govern
+the lower configurations.
 
-Se define como ramas *inferiores* a aquellas relacionadas con los *pipelines*.
-Un *Pipeline* es aquel lote de configuraciones para hacer:
+*Lower* branches are defined as those related to *pipelines*.
+A *Pipeline* is that batch of configurations to do:
 
-* analisis estadisticos
-* entrenamientos de modelos
-* comprension de modelos
-* otros estudios ...
+* statistical analysis
+* model training
+* model comprehension
+* other studies ...
 
-Los **piplines** deben tener nombre de tarea seguido del nombre del pipline siguiendo el siguiente esquema:
+**Pipelines** should have a task name followed by the pipeline name following the following scheme:
+
 
 ```
-<tarea>_<nombre>
+<task>_<name>
 ```
 
-tarea:
+task:
 
-* train   -> reservado
-* dataset -> reservado
-* estudy  -> reservado
+* train   -> reserved
+* dataset -> reserved
+* study   -> reserved
 * etc
 
-otro esquema permitido:
+another allowed scheme:
 
 ```
-<modelo&version>-<dataset&version>
+<model&version>-<dataset&version>
 ```
 
-El cual es util para sobre-entender que este corresponde a un entrenamiento de un modelo con un dataset particular
+Which is useful to over-understand that this corresponds to a model training with a particular dataset
 
 ---
 
-## Libertades de los colaboradores
+## Collaborators' Freedoms
 
-Los colaboradores poseen la libertad de escribir pruebas, codigo y esquetches en los subnodos denominados *notebooks*
-los cuales se encuentran aninados en las carpetas *datasets/<dataset_name>/notebooks* y *models/<model_name>/notebooks*.
-En ellos los colaboradores poseen libertad para escribir el codigo que deseen guardando las buenas practicas
-establecidas por **PEP8**. La regla de las dependencias sigue existiendo en este punto, lo que sigue limitando
-al colaborador a solicitar al director del proyecto la integracion de nuevas dependencias.
+Collaborators have the freedom to write tests, code, and sketches in the subnodes called *notebooks*
+which are nested in the folders *datasets/<dataset_name>/notebooks* and *models/<model_name>/notebooks*.
+In them, collaborators have the freedom to write the code they want, keeping the good practices
+established by **PEP8**. The dependency rule still exists at this point, which continues to limit
+the collaborator to request the integration of new dependencies from the project director.
 
 ---
 
-## Esquemas de ramas de GIT
+## GIT Branch Schemes
 
-La rama principal **main** es la rama donde convergen las ultimas versiones de todos los modelos, datasets, entrenamientos y deployments.
-Los otros **branchs** son exclusivos para el desarollo de cada *pieza* particular.
-Los **branchs** de los **branchs** son para las versiones de cada *pieza*.
+The main branch **main** is the branch where the latest versions of all models, datasets, trainings, and deployments converge.
+The other **branches** are exclusive for the development of each particular *piece*.
+The **branches** of the **branches** are for the versions of each *piece*.
 
-Las versiones de los dataset es llevada por *DVC* en la rama main
-Todos los archivos de datos raw ya sea los CSV, imagenes y otros no se les debe hacer seguimiento con git  por ningún motivo
-a excepcion de casos especificos determinados por el director del proyecto.
+Dataset versions are tracked by *DVC* in the main branch
+All raw data files whether CSV, images, and others should not be tracked with git for any reason
+except for specific cases determined by the project director.
 
-En resumen:
+In summary:
 
 ```mermaid
 gitGraph TB:
@@ -130,12 +131,11 @@ gitGraph TB:
 
 ---
 
-## Desarrollo de  *Models*
+## Development of Models
 
-En el sub-modulo models deben ir todos los desarrollos de los modelos de *inteligencia artificial*, cada modelo debe
-contenerse en su propia carpeta con en formato *camellcase* para aquellos casos que sea necesario.
+In the models sub-module should go all the developments of artificial intelligence models, each model should be contained in its own folder with the camelcase format for those cases where it is necessary.
 
-Entonces la estructura de carpeta de los modelos quedaría de la siguiente forma:
+Then the folder structure of the models would be as follows:
 
 ```mermaid
 graph LR
@@ -152,9 +152,9 @@ graph LR
   end
 ```
 
-## Desarrollo de *Datasets*
+Development of Datasets
 
-El codigo que genera los datasets tambien deben ser puestos en su propio modulo, siguiendo el siguiente esquema:
+The code that generates the datasets should also be put in its own module, following the following scheme:
 
 ```mermaid
 graph LR
@@ -170,18 +170,17 @@ graph LR
   datasetA --o common.py
   end
 ```
+Note that *common.py* and *dataset.py* are strict and although *common.py* is empty it must exist.
 
-Tenga en cuenta que *common.py* y *dataset.py* son estrictos y aunque *common.py* se encuentre vacio debe existir.
+- *common.py* is the right place to put helper functions for the *dataset.py* module.
+- *dataset.py* is the place where the functions/classes that create the dataset should be declared.
 
-- *common.py* es el lugar correcto para poner las funciones de ayuda para el modeulo dataset.py.
-- *dataset.py* es el lugar donde debe declararse las funciones/clases que creen el dataset.
 
 ## Desarrollo de *Entrenamientos*
-
-El entrenamiento de los diversos modelos deben estructurase en la carpeta *train*
-destinada a este proceso, esto se debe a que cada modelo, no necesariamente usa
-un tipo de dataset especifico, lo que hace naturalmente que podamos tener diferentes tipos de dataset para el mismo modelo.
-La estructura a seguir es la siguiente
+The training of the various models should be structured in the *train* folder intended for this process, this
+is because each model does not necessarily use a specific type of dataset, which naturally means we can have 
+different types of datasets for the same model.
+The structure to follow is as follows:
 
 ```mermaid
 graph LR
@@ -200,9 +199,8 @@ graph LR
   trainA --o pipeline.py
   end
 ```
-
-La de definición de los modulos contenidos en *steps* no son estrictas y pueden variar según corresponda.
-Es estricta la definción *pipeline.py* en la *raiz* del modelo particular con una *función* llamada *train*
+The definition of the modules contained in *steps* is not strict and may vary as appropriate.
+The definition of *pipeline.py* in the *root* of the particular model with a *function* called *train* is strict.
 
 ```python
 def train(config:DictConfig):
@@ -212,15 +210,16 @@ def train(config:DictConfig):
     #codigo
     return model
 ```
+The argument should always be a config of type DictConfig that will always come from *Hydra*.
 
-El argumento siembre debe ser un config del tipo DictConfig que provendrá siempre de *Hydra*
+---
 
-## Desarrollo de *Deploy*
+## Development of *Deploy*
 
-Este modulo, no está pensado para ser ejecutado mediante *pipelines*, debido a que carece de necesidad,
-no es una tarea altamente demandante ni altamente iterativa. La estructura de carpetas y modulos para
-esta sub-modulo es la siguiente. Evite usar archivos `__inint__.py` de esta forma *pdoc* no documentaría
-estos modelus de *deployments*
+This module is not intended to be executed through *pipelines*, because it lacks necessity,
+it is not a highly demanding or highly iterative task. The folder and module structure for
+this sub-module is as follows. Avoid using `__init__.py` files in this way *pdoc* would not
+document these *deployment* modules.
 
 ```mermaid
 graph LR
@@ -248,7 +247,11 @@ graph LR
   CONTAINER ==> docker
 ```
 
-Como los entrenamientos están logeados en *mlflow* contenerizar modelos es muy simple con la ayuda de *BentoML*. Cada tipo de modelo puede tener *versiones*, estas versiones se corresponden con *módulos* y cada modulo tiene una carpeta destinada para el *deployment* (docker). Se hace alusión a un **archivo ecr.sh** el cual contiene el codigo para logear el modelo en el repositorio correspondiente creado previamente en *ecr* de una manera directa, rápida y simple, se recomienda usarlo en otros desarrollos de *deploys*
+As the trainings are logged in *mlflow*, containerizing models is very simple with the help
+of *BentoML*. Each type of model can have *versions*, these versions correspond to *modules*
+and each module has a folder intended for *deployment* (docker). Reference is made to an **ecr.sh file**
+which contains the code to log the model in the corresponding repository previously created in *ecr* in a
+direct, fast and simple way, it is recommended to use it in other *deploy* developments.
 
 ```shell
 #!/bin/bash
@@ -287,7 +290,8 @@ else
 fi
 ```
 
-por otro lado, el archivo `create_bento_model.py` deberia lucir algo como así
+On the other hand, the `create_bento_model.py` file should look something like this:
+
 
 ```python
 import bentoml
@@ -309,7 +313,8 @@ bentoml.mlflow.import_model(
 )
 ```
 
-Tambien, se deja un ejemplo de como debe lucir el *service.py* necesario para que bentoml pueda crear la *API* del modelo de manera automatica
+Also, an example of how the *service.py* necessary for BentoML to automatically create the model's *API* should look is provided:
+
 
 ```python
 import os
@@ -341,15 +346,15 @@ async def predict(data):
     return {"champion-score": [f"{i}" for i in mesure(X, result)], "timestamp": dts}
 ```
 
-## Estandar diagrama de flujo clases y fuciones
+## Standard class and function flow diagram
 
-En e proyecto usaremos el siguiente *estandar* para definir los diagramas de flujos
+In the project we will use the following *standard* to define flow diagrams:
 
-1. referencia y nombre de la clase
-2. variables e inputs del constructor  `__init__`
-3. definición de los metodos, sus variables y su output
+1. reference and name of the class
+2. variables and inputs of the constructor `__init__`
+3. definition of methods, their variables and their output
 
-Un ejemplo
+An example:
 
     ```
     classDiagram
@@ -368,67 +373,61 @@ Un ejemplo
     DS <| -- DictConfig         <- DictConfig es una clase dentro de una clase
     ```
 
-los simbolos `+, -, # y ~` están reservaros para *metodo publico*, *privado*, *protegido* y interno
+The symbols `+, -, # and ~` are reserved for *public method*, *private*, *protected* and internal.
 
-**Nota**: Debe agregar en cada commit las modificaciones a al diagrama para que su commit sea aceptado
+**Note**: You must add the modifications to the diagram in each commit for your commit to be accepted.
 
 ---
 
-# Nomenclatura de creacion de tablas
+# Table creation nomenclature
 
 `<model-name>_dataset_<version>`
 
-por ejemplo:
+For example:
 
 `lstmconv_dataset_v1`
 
-# Requisitos para los pullrequest
+# Requirements for pull requests
 
-En orden de aceptar los pullrequest se asume que usted enteinde las exigencias
-anteriores. Las revisiones seran las siguientes:
+In order to accept pull requests, it is assumed that you understand the above requirements. The reviews will be the following:
 
-## models
+## Models
 
 1. Modelo va acompañado de la descripcion y toda la informacion relevante en su
    `__init__`.
 
-2. explicaion sencilla del modelo
+1. Model is accompanied by the description and all relevant information in its `__init__`.
+2. Simple explanation of the model
+3. Motivation
+4. Flow diagram written in **Mermaid**
+5. Fully documented code (**with its own docstring too**)
+6. If the pull request is a change to an existing model, you must add a new field called `#changes` in the `__init__`, indicating the change. If the change is structural, make all necessary modifications in the previous points.
 
-3. motivación
 
-4. diagrama de flujo escrito en **Mermaid**
-
-5. codigo completamente documentado (**con su propio docstring tambien**)
-
-6. si el pullrequest es un cambio al modelo ya existente, debe agregar una campo
-   nuevo que llamado `#cambios` en el `__init__`, indicando el cambio. Si el cambio
-   es estructural, haga todas las modificaciones necesarias en los puntos anteriores.
-
-NOTA: **Debió pasar el pre-commit**
+NOTE: **It should have passed the pre-commit**
 
 ---
 
-# inicializando el proyecto
+# Initializing the project
 
 ```shell
-# dependencias
+# Dependencies
 pip install pdoc pre-commit pipenv
 ```
 
 ```shell
-# dentro de la carpeta del proyecto
-pipenv install # instalas las dependencias del proyecto
-               # y puede tomar algo de tiempo
+# Inside the project folder
+pipenv install # installs the project dependencies and it may take some time
 
-pipenv shell   # inicializa el entorno python
+pipenv shell   # initializes the python environment
 
-# installa los git hooks
+# Install the git hooks
 pre-commit install
 ```
 
-# Creación de la documentacion
+# Creating the documentation
 
-para la creacion de la documetacion es necesario hacer
+To create the documentation it is necessary to do:
 
 ```shell
 # Siempre desde la razi del repositorio
