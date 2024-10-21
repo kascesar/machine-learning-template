@@ -26,9 +26,11 @@ bentoml = "*"
 dvc = "*"
 seaborn = "*"
 duckdb = "*"
+duckdb-engine = "*"
 optuna = "*"
 optuna-dashboard = "*"
 torch = "*"
+pymysql = "*"
 
 [dev-packages]
 

@@ -1,2 +1,3 @@
-path: ${paths.raw}/database.duckdb
-uri: duckdb://${.path}
+_target_: {{cookiecutter.short_title}}.utils.database.DataBase
+path: ${paths.datasets.local_db}/database.duckdb
+uri: duckdb:///${.path}

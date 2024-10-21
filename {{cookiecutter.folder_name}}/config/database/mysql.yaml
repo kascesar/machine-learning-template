@@ -1,6 +1,7 @@
+_target_: {{cookiecutter.short_title}}.utils.database.DataBase
 host: ${oc.env:MYSQL_HOST}
 user: ${oc.env:MYSQL_USER}
 password: ${oc.env:MYSQL_PASSWORD}
 port: ${oc.env:MYSQL_PORT}
 dbname: ${oc.env:MYSQL_DBNAME}
-uri: mysql://${.user}:${.password}@${.host}:${.port}/${.dbname}
+uri: mysql+pymysql://${.user}:${.password}@${.host}:${.port}/${.dbname}

@@ -86,8 +86,11 @@ tramp
 # .org
 *.org
 
-#
-datasets/*
+# hydra outputs
 outputs/*
 outputs
-/datasets
+
+# datasets
+**/*.duckdb
+**/*.db
+**/*.csv

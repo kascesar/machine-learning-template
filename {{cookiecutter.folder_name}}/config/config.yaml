@@ -4,8 +4,9 @@ defaults:
 
 paths:
  datasets:
-   root: datasets
+   root: dataset
    raw: ${.root}/raw
    processed: ${.root}/processed
    final: ${.root}/final
+   local_db: ${.root}/local_db
 debug: true

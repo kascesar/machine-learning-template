@@ -1,6 +1,7 @@
+_target_: {{cookiecutter.short_title}}.utils.database.DataBase
 host: ${oc.env:POSTGRES_HOST}
 user: ${oc.env:POSTGRES_USER}
 password: ${oc.env:POSTGRES_PASSWORD}
 port: ${oc.env:POSTGRES_PORT}
 dbname: ${oc.env:POSTGRES_DBNAME}
-uri: postgresql://${.user}:${.password}@${.host}:${.port}/${.dbname}
+uri: postgresql+psycopg2://${.user}:${.password}@${.host}:${.port}/${.dbname}

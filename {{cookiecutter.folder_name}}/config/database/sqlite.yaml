@@ -1,2 +1,3 @@
-path: ${paths.processed}/develop_sqlite.db
+_target_: {{cookiecutter.short_title}}.utils.database.DataBase
+path: ${paths.datasets.local_db}/develop_sqlite.db
 uri: sqlite:///${.path}

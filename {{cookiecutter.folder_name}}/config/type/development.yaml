@@ -1,4 +1,4 @@
 defaults:
-  - /database: duckdb
+  - /database: {{cookiecutter.develop_db}}
   - /mlflow: development
   - /optuna: development
