@@ -412,7 +412,7 @@ NOTE: **It should have passed the pre-commit**
 
 ```shell
 # Dependencies
-pip install pdoc pre-commit pipenv
+pip install pipenv
 ```
 
 ```shell
