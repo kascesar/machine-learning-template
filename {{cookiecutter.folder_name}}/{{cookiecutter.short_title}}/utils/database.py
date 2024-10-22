@@ -1,12 +1,14 @@
 """
-This module provides a `DataBase` class to simplify connecting to a database using SQLAlchemy. 
-The class manages engine creation and provides an easy interface to obtain a connection.
+This module provides a `DataBase` class to simplify connecting to a database
+using SQLAlchemy.  The class manages engine creation and provides an easy
+interface to obtain a connection.
 
 Classes:
     DataBase: Creates and manages the connection to the database using SQLAlchemy.
 """
 
 from sqlalchemy import create_engine
+from .tables import *
 
 
 class DataBase:
