@@ -39,6 +39,8 @@ mindmap
         development_type
         production_type
     markdown[Source **short_title**]
+	  markdown[**notebooks**]
+	    example.ipynb
       markdown[**datasets**]
         datasetV1
       markfown[**deploy**]
