@@ -104,6 +104,15 @@ chmod +x setup_hooks.sh && \
 sh setup_hooks.sh
 ```
 
+The git *Hooks* that set for us are
+ - black              ... (python code fixer. This try to solve issues by its self first)
+ - check-yaml
+ - end-of-file-fixer
+ - trailing-whitespace
+ - dvc-pre-commit     ... (before commit)
+ - dvc-pre-push       ... (before push)
+ - dvc-post-checkout  ... (after switching branch)
+
 ---
 
 # Read before using
