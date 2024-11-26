@@ -91,7 +91,7 @@ To instantiate a project, you can do it just typing
 cookiecutter https://github.com/kascesar/artificial-inteligence-template.git
 ```
 
-then follow the instruction.git
+then follow the instruction.
 
 ---
 

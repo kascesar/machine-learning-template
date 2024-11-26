@@ -433,3 +433,18 @@ To create the documentation it is necessary to do:
 # Siempre desde la razi del repositorio
 pdoc --mermaid --math frd -o docs/
 ```
+
+
+> [!NOTE]
+> **PDOC** supports the ability to add notes like this
+> using the following syntax:
+> ```shell
+>     > [!NOTE]
+>     > Note information
+> ```
+> **PDOC** also supports *warnings*:
+> ```shell
+>    > [!WARNING]
+>    > Make sure to check all parameters before running this function.
+> ```
+> Both can be used in function documentation.
